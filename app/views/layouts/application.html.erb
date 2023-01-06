@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tokyosento</title>
+    <title>コネクト銭湯</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -20,6 +20,35 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+              <li>
+                <%= link_to destroy_user_session_path, class: "nav-link text-dark", method: :delete do %>
+                ログアウト
+                <% end %>
+              </li>
+              <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to destroy_admin_session_path, class: "nav-link text-dark", method: :delete do %>
+                ログアウト
+                <% end %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+                新規登録
+                <% end %>
+              </li>
+               <li>
+                <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+                ログイン
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
