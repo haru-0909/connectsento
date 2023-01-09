@@ -25,6 +25,16 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li>
+                <%= link_to new_post_path, class: "nav-link text-white btn btn-sm btn-primary" do %>
+                投稿する
+                <% end %>
+              </li>
+              <li>
+                <%= link_to posts_path, class: "nav-link text-dark" do %>
+                投稿一覧
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, class: "nav-link text-dark", method: :delete do %>
                 ログアウト
                 <% end %>
@@ -42,7 +52,7 @@
                 <% end%>
               </li>
               <li>
-                <%= link_to users_guest_sign_in_path, method: :post, class: "nav-link text-dark" do %>
+                <%= link_to users_guest_sign_in_path, method: :post, class: "nav-link text-dark btn btn-sm btn-primary" do %>
                 ゲストログイン
                 <% end%>
               </li>
