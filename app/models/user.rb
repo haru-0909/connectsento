@@ -12,4 +12,6 @@ class User < ApplicationRecord
       user.name = 'サンプル'
       end
   end
+
+  has_many :posts, dependent: :destroy
 end

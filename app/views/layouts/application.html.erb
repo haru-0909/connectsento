@@ -36,10 +36,15 @@
                 <% end %>
               </li>
               <% else %>
-               <li>
-                 <%= link_to users_guest_sign_in_path, method: :post, class: "nav-link text-dark" do %>
-                 ゲストログイン
-                 <% end%>
+              <li>
+                <%= link_to about_path, class: "nav-link text-dark" do %>
+                ABOUT
+                <% end%>
+              </li>
+              <li>
+                <%= link_to users_guest_sign_in_path, method: :post, class: "nav-link text-dark" do %>
+                ゲストログイン
+                <% end%>
               </li>
               <li>
                 <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
