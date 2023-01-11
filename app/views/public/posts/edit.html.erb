@@ -1,15 +1,7 @@
 <main>
   <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <div class="mt-5 mb-5 text-center">
-          <h2>新規投稿</h2>
-        </div>
-      </div>
-    </div>
-
-      <%= form_with model: @post do |f| %>
-      <div class="row">
+      <%= form_with model: @post, method: :patch do |f| %>
+      <div class="row mt-5">
         <div class="col-2"></div>
         <label class="col-1 mt-4">
           <h5>施設名</h5>
@@ -38,7 +30,7 @@
       </div>
       <div class="row mt-2">
         <div class="col-10 text-center">
-          <%= f.submit "投稿する", class: "btn btn-sm btn-primary", style: "width:35%; height:50px;" %>
+          <%= f.submit "編集内容を保存", class: "btn btn-sm btn-primary", style: "width:35%; height:50px;" %>
         </div>
       </div>
       <% end %>
