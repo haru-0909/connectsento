@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_084942) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
-    t.text "caption", null: false
+    t.text "caption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_084942) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.string "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

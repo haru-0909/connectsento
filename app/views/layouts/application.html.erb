@@ -39,6 +39,11 @@
                 ログアウト
                 <% end %>
               </li>
+              <li>
+                <%= link_to user_path(current_user.id), class: "nav-link text-dark" do %>
+                マイページ
+                <% end %>
+              </li>
               <% elsif admin_signed_in? %>
               <li>
                 <%= link_to destroy_admin_session_path, class: "nav-link text-dark", method: :delete do %>

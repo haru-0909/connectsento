@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
 
       t.integer :user_id
       t.string :title, null: false
-      t.text :caption, null: false
+      t.text :caption
       t.timestamps
     end
   end
