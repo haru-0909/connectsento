@@ -8,7 +8,9 @@
         </div>
       </div>
       <div class="col-4 mt-5 mb-5 pt-4 text-right">
-        <%= link_to "編集" %>
+        <button type="button" class="btn btn-outline-danger">
+          <%= link_to '削除', admin_user_path(@user.id), class: "text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
+        </button>
       </div>
     </div>
     <% @posts.each do |posts| %>

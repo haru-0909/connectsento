@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show, :destroy]
   end
 
   devise_scope :user do
