@@ -29,7 +29,19 @@
           <%= image_tag @post.image, size: "300x250" %>
           <% end %>
         </div>
-        いいね　コメント機能
+        <div class="row">
+          <div class="col-2 text-center">
+            <% if @post.favorited?(current_user) %>
+            <%= link_to post_favorites_path(@post.id), method: :delete do %>
+            <h5 style="color:red;">❤</h5>
+            <% end %>
+            <% else %>
+            <%= link_to post_favorites_path(@post.id), method: :post do %>
+            <span>💙</span>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
