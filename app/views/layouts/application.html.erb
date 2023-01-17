@@ -40,8 +40,8 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to user_path(@user.id), class: "nav-link text-dark" do %>
-                <%= image_tag @user.get_profile_image(60,60) %>
+                <%= link_to user_path(current_user.id), class: "nav-link text-dark" do %>
+                <%= image_tag current_user.get_profile_image(60,60) %>
                 <% end %>
               </li>
               <% elsif admin_signed_in? %>

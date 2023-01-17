@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    about_path
+    if resource_or_scope.is_a?(Admin)
+      admin_users_path
+    else
+      about_path
+    end
   end
 
   protected

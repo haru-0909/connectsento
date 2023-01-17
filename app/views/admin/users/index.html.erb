@@ -1,0 +1,37 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-2">
+        <div class="mt-5 mb-5 text-center">
+          <h5>会員一覧</h5>
+        </div>
+      </div>
+      <div class="col-7"></div>
+    </div>
+
+    <div class="row">
+      <table class="table">
+        <thead>
+         <tr class="table-active">
+          <th scope="col">会員ID</th>
+          <th scope="col">氏名</th>
+          <th scope="col">メールアドレス</th>
+          <th scope="col">ステータス</th>
+         </tr>
+        </thead>
+        <% @users.each do |users| %>
+        <tbody class="table-boederless">
+          <tr>
+            <th scope="row"><%= users.id %></th>
+            <td>
+              <%= image_tag users.get_profile_image(70,70) %>
+              <%= users.name %>
+            </td>
+            <td><%= users.email %></td>
+          </tr>
+        </tbody>
+        <% end %>
+    </div>
+  </div>
+</main>
