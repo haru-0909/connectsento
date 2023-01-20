@@ -1,5 +1,7 @@
 class Public::PostsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:show, :create]
+
   def new
     @post = Post.new
   end
@@ -19,6 +21,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
+    @comments = @post.comments
+    @comment = current_user.comments.new
   end
 
   def edit

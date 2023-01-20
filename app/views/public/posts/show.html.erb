@@ -29,20 +29,48 @@
           <%= image_tag @post.image, size: "300x250" %>
           <% end %>
         </div>
-        <div class="row">
-          <div class="col-2 text-center">
-            <% if @post.favorited?(current_user) %>
-            <%= link_to post_favorites_path(@post.id), method: :delete do %>
-            <h5 style="color:red;">❤</h5>
-            <% end %>
-            <% else %>
-            <%= link_to post_favorites_path(@post.id), method: :post do %>
-            <span>💙</span>
-            <% end %>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
+    <div class="row mt-1">
+      <div class="col-2"></div>
+      <div class="col-1 text-right">
+        <% if @post.favorited?(current_user) %>
+        <%= link_to post_favorites_path(@post.id), method: :delete do %>
+        <h5 style="color:red;">❤</h5>
+        <% end %>
+        <% else %>
+        <%= link_to post_favorites_path(@post.id), method: :post do %>
+        <span>💙</span>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="col-1 text-center">
+        <h5>💬</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <% @comments.each do |comment| %>
+      <div class="col-5">
+        <%= comment.comment %>
+      </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-5">
+        <h4>コメントをする</h4>
+      </div>
+    </div>
+    <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-2">
+        <%= f.text_area :comment %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.submit 'コメントする' %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </main>
