@@ -3,16 +3,16 @@ class Public::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
-      redirect_to post_path(@post.id)
+      redirect_back(fallback_location: root_path)
     else
-      redirect_to post_path(@post.id)
+     redirect_back(fallback_location: root_path)
     end
   end
 
-  private 
+  private
 
   def comment_params
-    params.require(:comment).permit(:comment, :post_id)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
+    params.require(:comment).permit(:comment, :post_id)
   end
 
 
