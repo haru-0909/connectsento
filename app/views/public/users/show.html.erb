@@ -11,6 +11,11 @@
         <%= link_to "編集", edit_user_path(current_user.id) %>
       </div>
     </div>
+    <div class="row">
+      <div class="col-3">
+        <p><%=link_to"いいねを見る",favorites_user_path(@user) %></p>
+      </div>
+    </div>
     <% @posts.each do |posts| %>
     <div class="row mt-3">
       <div class="col-2"></div>
