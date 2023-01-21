@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       member do
         get :favorites
+        get :follows, :followers #フォロー一覧とフォロワー一覧
       end
+      resource :relationships, only: [:create, :destroy]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
