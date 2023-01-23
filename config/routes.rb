@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: :about
+    get 'search', to: 'searchs#search'
     resources :posts do
       resource :favorites, only: [:create, :destroy]
       resource :comments,  only: [:create, :destroy]
@@ -31,5 +32,7 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
     end
   end
+
+  get '/search', to: 'searchs#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
