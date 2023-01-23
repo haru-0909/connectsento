@@ -13,6 +13,9 @@
             <% end %>
           </div>
           <%= @user.introduction %>
+          <div class="mt-5 mr-5">
+            <%=link_to"いいねを見る",favorites_user_path(@user) %>
+          </div>
         </div>
       </div>
       <div class="col-4 mt-5 mb-5 pt-4 text-right">
@@ -26,11 +29,6 @@
         <%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST, class:"btn-sm btn-success" %>
         <% end %>
         <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <p><%=link_to"いいねを見る",favorites_user_path(@user) %></p>
       </div>
     </div>
     <% @posts.each do |posts| %>

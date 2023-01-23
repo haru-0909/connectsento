@@ -1,5 +1,4 @@
 class Public::UsersController < ApplicationController
-  before_action :set_user, only: [:followings, :followers]
 
   def show
     @user = User.find(params[:id])
@@ -28,18 +27,16 @@ class Public::UsersController < ApplicationController
   end
 
   def follows
-    @users = @user.follows
+    @user = User.find(params[:id])
+    @users = @user.following_user
   end
 
   def followers
-    @users = @user.followers
+    @user = User.find(params[:id])
+    @users = @user.follower_user
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def user_params
       params.require(:user).permit(:name, :introduction, :profile_image)

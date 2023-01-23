@@ -1,9 +1,7 @@
 class Public::RelationshipsController < ApplicationController
 
   def create
-    #byebug
     current_user.follow(params[:user_id])
-    #follow.save
     redirect_to request.referer
   end
 
