@@ -50,17 +50,17 @@
         <h5 class="font-weight-normal">💬<%= @post.comments.count %></h5>
       </div>
     </div>
-    <% @comments.each do |comment| %>
     <div class="row">
       <div class="col-2"></div>
       <div class="pl-5 col-9">
+        <% @comments.each do |comment| %>
         <%= image_tag comment.user.get_profile_image(45,45) %>
         <label class="font-weight-bold"><%= comment.user.name %></label></br>
         <div class="pl-5">
           <%= comment.comment %>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
     <div class="row mt-4">
       <div class="col-2"></div>

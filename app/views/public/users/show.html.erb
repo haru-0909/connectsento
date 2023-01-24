@@ -31,20 +31,9 @@
         <% end %>
       </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 ml-5">
       <%= render 'public/searchs/form' %>
-      <div class="col-4">
-        <% @posts.each do |posts| %>
-        <%= image_tag @user.get_profile_image(60,60) %><%= posts.user.name %></br>
-        <%= link_to post_path(posts.id) do %>
-        <%= posts.title %></br>
-        <% end %>
-        <%= posts.caption %></br>
-        <% if posts.image.attached? %>
-        <%= image_tag posts.image, size: "300x250" %>
-        <% end %>
-        <% end %>
-      </div>
+      <%= render 'public/posts/index', posts: @posts %>
     </div>
   </div>
 </main>
