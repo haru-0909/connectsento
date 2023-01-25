@@ -58,3 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem "active_storage_validations"
+
+gem "dotenv-rails"
+
+gem "geocoder"

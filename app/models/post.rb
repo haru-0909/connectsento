@@ -5,6 +5,9 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  #geocoded_by :address
+  #after_validation :geocode
+
   def favorited?(user)
     favorites.where(user_id: user.id).exists?
   end
