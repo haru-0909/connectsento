@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: :about
     get 'search', to: 'searchs#search'
     resources :posts do
+      member do
+        get :map
+      end
       resource :favorites, only: [:create, :destroy]
       resource :comments,  only: [:create, :destroy]
     end

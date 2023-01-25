@@ -50,9 +50,14 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def map
+    @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :caption, :image)
+    params.require(:post).permit(:title, :caption, :image, :address, :latitude, :longitude)
   end
 end

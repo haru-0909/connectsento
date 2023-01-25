@@ -28,6 +28,15 @@
       　  <%= f.file_field :image, accept: "image/*" %>
       　</div>
       </div>
+      <div class="row text-right">
+        <div class="col-1"></div>
+        <label class="col-2 mt-4">
+         <h5>住所</h5>
+        </label>
+        <div class="col-4">
+      　 <%= f.text_field :address, autofocus: true,placeholder: "住所を入力してください", style: "width:100%;" %>
+      　</div>
+      </div>
       <div class="row mt-2">
         <div class="col-10 text-center">
           <%= f.submit "編集内容を保存", class: "btn btn-sm btn-primary", style: "width:35%; height:50px;" %>
