@@ -1,16 +1,17 @@
 <main>
   <div class="container">
     <div class="row">
-      <div class="col-4">
-        <div class="mt-5 mb-5 text-center">
+      <div class="col-4 mt-5 mb-5 text-center">
           <h2>いいね一覧　(<%= @favorite_posts.count %>件)</h2>
-        </div>
+      </div>
+      <div class="col-3 mt-5 mb-5 text-center">
+        <%= link_to '戻る', user_path(@user.id), class: "btn btn-outline-primary" %>
       </div>
     </div>
-    <% @favorite_posts.each do |posts|%>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-4">
+      <%= render 'public/searchs/form' %>
+      <div class="col-4 ml-3">
+        <% @favorite_posts.each do |posts|%>
         <%= image_tag posts.user.get_profile_image(60,60) %><%= posts.user.name %></br>
         <%= link_to post_path(posts.id) do %>
         <%= posts.title %></br>
@@ -19,8 +20,8 @@
         <% if posts.image.attached? %>
         <%= image_tag posts.image, size: "300x250" %>
         <% end %>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </main>

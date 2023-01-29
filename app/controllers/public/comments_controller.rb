@@ -10,14 +10,8 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    comment = @post.comments.find(params[:id])
-    if current_user.id == comment.user.id
-      comment.destroy
-      redirect_back(fallback_location: root_path)
-    else
-      render "records/show"
-    end
+    Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -31,6 +31,11 @@
           <% end %>
           <% end %>
         </div>
+        <div class="col-2 mt-5 mb-5 pt-4 text-right">
+          <% if user_signed_in? && @user == current_user %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn-sm btn-danger" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="row mt-3 ml-5">
