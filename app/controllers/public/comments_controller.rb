@@ -9,6 +9,17 @@ class Public::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    comment = @post.comments.find(params[:id])
+    if current_user.id == comment.user.id
+      comment.destroy
+      redirect_back(fallback_location: root_path)
+    else
+      render "records/show"
+    end
+  end
+
   private
 
   def comment_params

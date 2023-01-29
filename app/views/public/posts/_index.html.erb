@@ -1,12 +1,14 @@
 <div class="col-4 ml-5">
   <% posts.each do |posts| %>
-  <%= image_tag posts.user.get_profile_image(60,60) %><%= posts.user.name %></br>
+  <%= link_to user_path(posts.user.id) do %>
+  <div class="text-dark font-weight-bold"><%= image_tag posts.user.get_profile_image(60,60) %><%= posts.user.name %></br></div>
+  <% end %>
   <%= link_to post_path(posts.id) do %>
   <%= posts.title %></br>
-  <% end %>
-  <%= posts.caption %></br>
+  <div class="text-dark"><%= posts.caption %></br></div>
   <% if posts.image.attached? %>
   <%= image_tag posts.image, size: "300x250" %>
+  <% end %>
   <% end %>
   <% end %>
 </div>
