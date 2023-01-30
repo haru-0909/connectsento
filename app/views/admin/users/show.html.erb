@@ -1,26 +1,28 @@
 <main>
   <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <div class="mt-5 mb-5 text-center">
-          <h2><%= image_tag @user.get_profile_image(100,100) %><%= @user.name %></h2>
-          <%= @user.introduction %>
+    <div class="card" style="width: 85%;">
+      <div class="row">
+        <div class="col-4">
+          <div class="mt-5 mb-5 text-center">
+            <%= @user.created_at.strftime('%Y/%m/%d') %></br>
+            <h2><%= image_tag @user.get_profile_image(100,100) %><%= @user.name %></h2>
+            <%= @user.introduction %>
+          </div>
         </div>
-      </div>
-      <div class="col-4 mt-5 mb-5 pt-4 text-right">
-        <button type="button" class="btn btn-outline-danger">
-          <%= link_to '削除', admin_user_path(@user.id), class: "text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
-        </button>
+        <div class="col-4 mt-5 mb-5 pt-4 text-right">
+          <button type="button" class="btn btn-outline-danger">
+            <%= link_to '削除', admin_user_path(@user.id), class: "text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
+          </button>
+        </div>
       </div>
     </div>
     <% @posts.each do |posts| %>
     <div class="row mt-3">
       <div class="col-2"></div>
       <div class="col-4">
-        <%= image_tag @user.get_profile_image(60,60) %><%= posts.user.name %></br>
-        <%= link_to post_path(posts.id) do %>
+        <%= image_tag @user.get_profile_image(60,60) %><%= posts.user.name %>
+        　<%= link_to "削除", admin_post_path(posts.id), method: :delete, class: "btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></br>
         <%= posts.title %></br>
-        <% end %>
         <%= posts.caption %></br>
         <% if posts.image.attached? %>
         <%= image_tag posts.image, size: "300x250" %>

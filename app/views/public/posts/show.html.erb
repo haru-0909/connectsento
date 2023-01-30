@@ -66,7 +66,7 @@
         <label class="font-weight-bold text-dark"><%= comment.user.name %></label>
         <% end %>
         <% if user_signed_in? && comment.user == current_user %>
-          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></br>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></br>
         <% end %>
         <div class="pl-5 text-dark">
           <%= comment.comment %>

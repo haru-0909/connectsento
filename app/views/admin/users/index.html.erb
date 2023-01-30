@@ -17,6 +17,7 @@
           <th scope="col">会員ID</th>
           <th scope="col">氏名</th>
           <th scope="col">メールアドレス</th>
+          <th scope="col">登録日</th>
          </tr>
         </thead>
         <% @users.each do |users| %>
@@ -30,6 +31,7 @@
               <% end %>
             </td>
             <td><%= users.email %></td>
+            <td><%= users.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
         </tbody>
         <% end %>

@@ -1,8 +1,9 @@
 <div class="col-4 ml-5">
   <% posts.each do |posts| %>
   <%= link_to user_path(posts.user.id) do %>
-  <div class="text-dark font-weight-bold"><%= image_tag posts.user.get_profile_image(60,60) %><%= posts.user.name %></br></div>
+  <div class="text-dark font-weight-bold"><%= image_tag posts.user.get_profile_image(60,60) %><%= posts.user.name %></div>
   <% end %>
+  <%= posts.created_at.strftime('%Y/%m/%d') %></br>
   <%= link_to post_path(posts.id) do %>
   <%= posts.title %></br>
   <div class="text-dark"><%= posts.caption %></br></div>
